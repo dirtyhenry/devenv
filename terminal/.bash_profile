@@ -21,7 +21,54 @@
 
 #   Change Prompt
 #   ------------------------------------------------------------
-    export PS1="________________________________________________________________________________\n| \w @ \h (\u) \n| => "
+#    export PS1="________________________________________________________________________________\n| \w @ \h (\u) \n| => "
+
+function __ps1_layout {
+    local errno="$?"
+
+    if [ "$TERM" = "xterm-color" ] || [ "$TERM" = "xterm-256color" ] ; then
+        local normal="\[\033[0"
+        local bold="\[\033[1"
+        local underline="\[\033[2"
+
+        local red=";31m\]"
+        local gray=";29m\]"
+        local blue=";34m\]"
+        local yellow=";33m\]"
+        local green=";32m\]"
+        local clean="\[\033[0m\]"
+    fi
+
+    local color_errno="${normal}${green}"
+    if [[ "${errno}" != "0" ]] ; then
+        color_errno="${bold}${red}"
+    fi
+    if [[ "${errno}" -lt "100" ]] ; then
+        errno=" ${errno}"
+    fi
+    if [[ "${errno}" -lt "10" ]] ; then
+        errno=" ${errno}"
+    fi
+
+    local color="${yellow}"
+    local at="\342\232\275 "
+    local dash=">"
+    if [[ "$(id -u)" = "0" ]] ; then
+        local color="${red}"
+        local at="@"
+        local dash="#"
+    fi
+
+    local user="${normal}${color}\u${clean}"
+    local sepa="${bold}${color}${at}${clean}"
+    local host="${normal}${color}\h${clean}"
+    local path="${normal}${blue}\w${clean}"
+    local erro="${color_errno}${errno} ${dash} ${clean}"
+    PS1="${user} ${sepa} ${host}:${path}\n ${erro}"
+}
+
+export PROMPT_COMMAND=__ps1_layout
+
     export PS2="| => "
 
 #   Set Paths
