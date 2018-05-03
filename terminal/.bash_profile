@@ -75,6 +75,7 @@ export PROMPT_COMMAND=__ps1_layout
 #   ------------------------------------------------------------
     export PATH="$PATH:/usr/local/bin/"
     export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+    export PATH="$PATH:$HOME/bin"
 
 #   Set Default Editor
 #   ------------------------------------------------------------
