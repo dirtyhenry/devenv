@@ -12,6 +12,7 @@
 #  7.   System Operations & Information
 #  8.   Web Development
 #  9.   Reminders & Notes
+#  10.  Development Extras
 #
 #  ---------------------------------------------------------------------------
 
@@ -19,67 +20,14 @@
 #   1.  ENVIRONMENT CONFIGURATION
 #   -------------------------------
 
-#   Change Prompt
-#   ------------------------------------------------------------
-#    export PS1="________________________________________________________________________________\n| \w @ \h (\u) \n| => "
-
-function __ps1_layout {
-    local errno="$?"
-
-    if [ "$TERM" = "xterm-color" ] || [ "$TERM" = "xterm-256color" ] ; then
-        local normal="\[\033[0"
-        local bold="\[\033[1"
-        local underline="\[\033[2"
-
-        local red=";31m\]"
-        local gray=";29m\]"
-        local blue=";34m\]"
-        local yellow=";33m\]"
-        local green=";32m\]"
-        local clean="\[\033[0m\]"
-    fi
-
-    local color_errno="${normal}${green}"
-    if [[ "${errno}" != "0" ]] ; then
-        color_errno="${bold}${red}"
-    fi
-    if [[ "${errno}" -lt "100" ]] ; then
-        errno=" ${errno}"
-    fi
-    if [[ "${errno}" -lt "10" ]] ; then
-        errno=" ${errno}"
-    fi
-
-    local color="${yellow}"
-    local at="\342\232\275 "
-    local dash=">"
-    if [[ "$(id -u)" = "0" ]] ; then
-        local color="${red}"
-        local at="@"
-        local dash="#"
-    fi
-
-    local user="${normal}${color}\u${clean}"
-    local sepa="${bold}${color}${at}${clean}"
-    local host="${normal}${color}\h${clean}"
-    local path="${normal}${blue}\w${clean}"
-    local erro="${color_errno}${errno} ${dash} ${clean}"
-    PS1="${user} ${sepa} ${host}:${path}\n ${erro}"
-}
-
-export PROMPT_COMMAND=__ps1_layout
-
-    export PS2="| => "
-
 #   Set Paths
 #   ------------------------------------------------------------
-    export PATH="$PATH:/usr/local/bin/"
     export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
     export PATH="$PATH:$HOME/bin"
 
 #   Set Default Editor
 #   ------------------------------------------------------------
-    export EDITOR=/usr/local/bin/atom --wait
+    export EDITOR="/usr/local/bin/atom --wait"
 
 #   Set default blocksize for ls, df, du
 #   from this: http://hints.macworld.com/comment.php?mode=view&cid=24491
@@ -342,3 +290,15 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   e.g.: hdiutil create -size 10m 10MB.dmg
 #   the above create files that are almost all zeros - if random bytes are desired
 #   then use: ~/Dev/Perl/randBytes 1048576 > 10MB.dat
+
+#   ---------------------------------------
+#   10.  DEVELOPMENT EXTRA
+#   ---------------------------------------
+
+# Load rbenv automatically
+eval "$(rbenv init -)"
+
+# Load nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

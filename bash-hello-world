@@ -1,0 +1,29 @@
+#!/usr/bin/env bash -xe
+
+# ↑ This is the most portable shebang for a BASH script.
+# 🔗 https://stackoverflow.com/a/10383546
+
+# -e
+# 📖 Exit immediately if a pipeline returns a non-zero status.
+# 🔗 https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+
+# -x
+# 📖 Print a trace of simple commands
+# 🔗 https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+
+echo "Hello Bash"
+
+# This is the simplest command I could find returning a non-zero return value
+# The parenthesis are important.
+# 🔗 https://unix.stackexchange.com/a/315368
+# (exit 1)
+
+greet() {
+  echo "Hello ${1-Mick}"
+  echo "Hello ${2-Mick}"
+  echo "Hello ${3-Mick}"
+  echo "Hello ${4-Mick}"
+}
+greet John Paul George Ringo
+
+echo "Bye Bash"
