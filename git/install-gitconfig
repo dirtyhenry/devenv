@@ -11,3 +11,6 @@ git config --global alias.s 'status --short --branch'
 
 # Shortcut for commit workflow
 git config --global alias.c 'commit-workflow'
+
+# Shortcut for log
+git config --global alias.l 'log --oneline'
