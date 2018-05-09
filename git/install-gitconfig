@@ -5,3 +5,6 @@
 # Convenience alias for reviewing a branch before a Merge/Pull Request
 # It ignores contents of the `Pods` directory, which is super convenient for my iOS developement workflow
 git config --global alias.review '!f(){ master_hash=$(git merge-base master HEAD); git difftool $master_hash HEAD -- '\'':!Pods'\''; };f'
+
+# Shortcut for status
+git config --global alias.s 'status --short --branch'
