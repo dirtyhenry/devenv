@@ -1,0 +1,10 @@
+#!/usr/bin/env bash -e
+# No -x as I don't want to see the command output
+
+printf "\n--- status ---\n"
+git s
+printf "\n--- starting difftool ---\n"
+git difftool HEAD
+printf "\n--- ready to commit? ---\n"
+read -p "Commit message: " commit_message
+git commit -am $commit_message
