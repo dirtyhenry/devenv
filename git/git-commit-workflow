@@ -7,4 +7,4 @@ printf "\n--- starting difftool ---\n"
 git difftool HEAD
 printf "\n--- ready to commit? ---\n"
 read -p "Commit message: " commit_message
-git commit -am $commit_message
+git commit -am "${commit_message}"

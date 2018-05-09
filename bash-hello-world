@@ -26,4 +26,8 @@ greet() {
 }
 greet John Paul George Ringo
 
+# Interactive prompt
+read -p "Say something nice: " something_nice
+echo "💐 It is so nice saying ${something_nice}!"
+
 echo "Bye Bash"

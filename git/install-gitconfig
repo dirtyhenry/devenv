@@ -8,3 +8,6 @@ git config --global alias.review '!f(){ master_hash=$(git merge-base master HEAD
 
 # Shortcut for status
 git config --global alias.s 'status --short --branch'
+
+# Shortcut for commit workflow
+git config --global alias.c 'commit-workflow'
