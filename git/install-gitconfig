@@ -17,3 +17,6 @@ git config --global alias.c 'commit-workflow'
 
 # Shortcut for log
 git config --global alias.l 'log --oneline'
+
+# Shortcut for difftool
+git config --global alias.d 'difftool HEAD'
