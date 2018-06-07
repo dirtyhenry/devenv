@@ -1,0 +1,8 @@
+#!/usr/bin/env bash -xe
+
+read -p "Phone number: " phone_number
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText \
+"🇫🇷 Cet ordinateur est lié à un compte Apple iCloud et n'a pas de valeur s'il est perdu.\n \
+Merci de le retourner en appelant le ${phone_number}. Récomponse incluse.\n\n \
+🇺🇸 This computer is attached to an Apple iCloud account and valueless if lost.\n \
+Please return by calling ${phone_number}. Reward included."
