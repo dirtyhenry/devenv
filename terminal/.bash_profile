@@ -296,9 +296,6 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   10.  DEVELOPMENT EXTRA
 #   ---------------------------------------
 
-# Load rbenv automatically
-eval "$(rbenv init -)"
-
 # Load nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
