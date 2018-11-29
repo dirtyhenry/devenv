@@ -23,3 +23,9 @@ git config --global alias.d 'difftool HEAD'
 
 # Shortcut for branch
 git config --global alias.br 'branch --sort=committerdate -vv'
+
+# Show all logs relative to the commit... and as such, show the MR number
+git config --global alias.mr '!f() { local b=${2-master}; git log --merges $1..$b | tail; }; f'
+
+# Go back on master and catchup on the upstream (ie pull upstream and push origin)
+git config --global alias.cu 'catchup'

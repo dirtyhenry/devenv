@@ -1,0 +1,19 @@
+#!/usr/bin/env bash -e
+# No -x as I don't want to see the command output
+
+MARKDOWN_APP_BUNDLE_ID="com.metaclassy.byword"
+
+GIT_ROOT_DIR=`git rev-parse --show-toplevel`
+README="${GIT_ROOT_DIR}/README"
+README_MD="${GIT_ROOT_DIR}/README.md"
+
+if [ -f $README ]; then
+  open -b $MARKDOWN_APP_BUNDLE_ID $README
+elif [ -f $README_MD ]; then
+  open -b $MARKDOWN_APP_BUNDLE_ID $README_MD
+else
+  echo "No README or README.md file found."
+  exit 1
+fi
+
+exit 0
