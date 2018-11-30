@@ -4,7 +4,6 @@
 printf "\n--- status ---\n"
 git s
 printf "\n--- starting difftool ---\n"
-git difftool HEAD
+git d --staged
 printf "\n--- ready to commit? ---\n"
-read -p "Commit message: " commit_message
-git commit -am "${commit_message}"
+npx git-cz
