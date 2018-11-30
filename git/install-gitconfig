@@ -29,3 +29,6 @@ git config --global alias.mr '!f() { local b=${2-master}; git log --merges $1..$
 
 # Go back on master and catchup on the upstream (ie pull upstream and push origin)
 git config --global alias.cu 'catchup'
+
+# Shortcut for interactive rebase from upstream
+git config --global alias.rum 'rebase -i upstream/master'
