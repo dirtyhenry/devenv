@@ -1,0 +1,22 @@
+#!/usr/bin/env bash -e
+# No -x as I don't want to see the command output
+
+# This scripts aims to start a new feature so that is:
+# 1. Decide if we build on the current branch of if we want to start from master
+
+Get the branch: git branch | grep \* | cut -d ' ' -f2
+
+=> go back to master:
+git checkout master
+
+# 1. Decide if we want to make master up to date with upstream or not
+git pull upstream master
+git push origin master
+
+# 1. Create a new branch
+git checkout -b fix/useCurrentCategories
+
+# Publishing the feature is another story
+# Publish the current branch to a branch name with the same name on origin
+# git config --global alias.feature '!f(){ git checkout --track origin/$1 $1; }; f'
+git push --set-upstream origin fix/useCurrentCategories
