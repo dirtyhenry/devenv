@@ -10,3 +10,6 @@ install:
 	install git/git-readme "$(bindir)/git-readme"
 
 	./git/install-gitconfig
+
+open: 
+	open -a 'Visual Studio Code'
