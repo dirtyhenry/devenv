@@ -7,7 +7,7 @@ install:
 
 	install git/git-catchup "$(bindir)/git-catchup"
 	install git/git-commit-workflow "$(bindir)/git-commit-workflow"
-	install git/git-fix-lint "$(bindir)/git-fix-lint"
+	install git/git-fix-lint.rb "$(bindir)/git-fix-lint"
 	install git/git-readme "$(bindir)/git-readme"
 
 	./git/install-gitconfig
