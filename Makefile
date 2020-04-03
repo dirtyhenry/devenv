@@ -9,8 +9,9 @@ install:
 	install git/git-commit-workflow "$(bindir)/git-commit-workflow"
 	install git/git-fix-lint.rb "$(bindir)/git-fix-lint"
 	install git/git-readme "$(bindir)/git-readme"
+	install git/git-rewrite-author "$(bindir)/git-rewrite-author"
 
 	./git/install-gitconfig
 
 open: 
-	open -a 'Visual Studio Code'
+	open . -a 'Visual Studio Code'
