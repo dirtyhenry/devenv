@@ -13,5 +13,7 @@ install:
 
 	./git/install-gitconfig
 
+	install bin/open-in-studio-code.sh "$(bindir)/opencode"
+
 open: 
 	open . -a 'Visual Studio Code'
