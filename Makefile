@@ -6,6 +6,7 @@ install:
 	cp terminal/.bash_profile ~/.oh-my-zsh/custom/mick-custo-READONLY.zsh
 
 	install git/git-catchup "$(bindir)/git-catchup"
+	install git/git-catchup-2 "$(bindir)/git-catchup-2"
 	install git/git-commit-workflow "$(bindir)/git-commit-workflow"
 	install git/git-fix-lint.rb "$(bindir)/git-fix-lint"
 	install git/git-hobby "$(bindir)/git-hobby"
