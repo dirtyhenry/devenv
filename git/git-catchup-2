@@ -1,0 +1,15 @@
+#!/usr/bin/env bash -e
+# No -x as I don't want to see the command output
+
+# Get back to main
+git checkout main
+
+# Fetch things from the upstream, including tags
+git pull upstream main --tags
+
+# Push things back to the origin fork
+git push origin main
+
+# Prune things up
+git remote prune origin
+git cleanup
