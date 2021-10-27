@@ -1,13 +1,13 @@
-#!/usr/bin/env bash -xe
+#!/usr/bin/env bash
 
 # ↑ This is the most portable shebang for a BASH script.
 # 🔗 https://stackoverflow.com/a/10383546
 
-# -e
+# set -e
 # 📖 Exit immediately if a pipeline returns a non-zero status.
 # 🔗 https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
 
-# -x
+# set -x
 # 📖 Print a trace of simple commands
 # 🔗 https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
 
